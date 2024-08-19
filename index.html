@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0xcon</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta property="og:title" content="0xcon" />
+<meta property="og:description" content="0xcon is an infosec conference aimed towards building the Gauteng and ZA community. Lots of you do great research and this is an open platform for you to share yours, as well as to see what others have been working on. Go here for more info: 0xcon.co.za" />
+<style type="text/css">
+
+    .navbar-inverse .navbar-nav>.active>a,
+    .navbar-inverse .navbar-nav>.active>a:focus,
+    .navbar-inverse .navbar-nav>.active>a:hover{
+      background-color: black;
+    }
+
+    .navbar-inverse .navbar-nav > .active > a > span,
+    .navbar-inverse .navbar-nav > .active > a:hover > span,
+    .navbar-inverse .navbar-nav > .active > a:focus > span {
+      -webkit-animation: 1s blink step-end infinite;
+      -moz-animation: 1s blink step-end infinite;
+      -ms-animation: 1s blink step-end infinite;
+      -o-animation: 1s blink step-end infinite;
+      animation: 1s blink step-end infinite;
+    }
+      .blinking-cursor {
+      font-weight: 100;
+      font-size: 30px;
+      color: #2E3D47;
+
+    }
+    .blinkers{
+      color: black;
+    }
+    @keyframes "blink" {
+      from, to {
+        color: transparent;
+      }
+      50% {
+        color: white;
+      }
+    }
+    .navbar{
+      background-color: black;
+    }
+
+    @-moz-keyframes blink {
+      from, to {
+        color: transparent;
+      }
+      50% {
+        color: white;
+      }
+    }
+
+    @-webkit-keyframes "blink" {
+      from, to {
+        color: transparent;
+      }
+      50% {
+        color: white;
+      }
+    }
+
+    @-ms-keyframes "blink" {
+      from, to {
+        color: transparent;
+      }
+      50% {
+        color: white;
+      }
+    }
+
+    @-o-keyframes "blink" {
+      from, to {
+        color: transparent;
+      }
+      50% {
+        color: white;
+      }
+    }
+
+    /* RESPONSIVE ALIGN */
+
+    .text-xs-left { text-align: left; }
+    .text-xs-right { text-align: right; }
+    .text-xs-center { text-align: center; }
+    .text-xs-justify { text-align: justify; }
+
+    @media (min-width: 768px) {
+        .text-sm-left { text-align: left; }
+        .text-sm-right { text-align: right; }
+        .text-sm-center { text-align: center; }
+        .text-sm-justify { text-align: justify; }
+    }
+
+    .col-md-half {
+       @extend .col-md-1;
+       width: 4.166666667%;
+    }
+
+    .col-xs-half {
+       @extend .col-xs-1;
+       width: 4.166666667%;
+    }
+
+
+    .affix {
+        top:0;
+        width: 100%;
+        z-index: 9999 !important;
+    }
+    *{
+      font-family: "Courier New", Courier, monospace;
+      color: #438db9;
+      font-weight: 500;
+    }
+    .main-heading{
+      font-size: 75px;
+    }
+
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar {
+      margin-bottom: 0px;
+    }
+
+    .affix ~ .container-fluid {
+       position: relative;
+       top: 50px;
+    }
+
+    .root {
+      background-color:black;color:#fff;height:100px;
+    }
+
+    .counter{
+      font-size: 75px;
+      color: #d10606;
+    }
+
+    .counter-label{
+      font-size: 30px;
+      color: #d10606;
+    }
+
+    @media (max-width: 768px) {
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .btn {
+        width: 200px;
+      }
+    }
+
+    .list_bullets{
+      color: red;
+      float: left;
+    }
+
+    .lists{
+      margin-left: 40px;
+    }
+
+    .list_bullets_req{
+      color: red;
+      float: left;
+      margin-left: 10px;
+    }
+
+    .lists_req{
+      margin-left: 50px;
+      padding-right: 10px;
+    }
+
+    #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1e1f23;}
+    #cfp {padding-top:60px;min-height:100vh;color: #fff; background-color: #1e1f23;}
+    #event {padding-top:60px;min-height:100vh;color: #fff; background-color: #1e1f23;}
+    #challenge {padding-top:60px;min-height:100vh;color: #fff; background-color: #1e1f23;}
+    #directions {padding-top:60px;min-height:100vh;color: #fff; background-color: #1e1f23;}
+    #schedule {padding-top:60px;min-height:100vh;color: #fff; background-color: #1e1f23;}
+    #code {padding-top:60px;min-height:95vh;color: #fff; background-color: #1e1f23;}
+    #end {padding-top:60px;min-height:5vh;color: #fff; background-color: #000000;}
+
+
+
+/*
+
+html, body {
+    background-color: #222C32;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}*/
+
+.cd-container {
+  /*width: 90%;*/
+  max-width: 1080px;
+  margin: 0 auto;
+  /*background: #2B343A;*/
+  padding: 0 10%;
+  border-radius: 2px;
+}
+.cd-container::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+
+
+#cd-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#cd-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25px;
+  height: 100%;
+  width: 4px;
+  /*background: #00FF00;*/
+  background: rgb(51, 60, 66);
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+}
+
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0;
+}
+.cd-timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-block {
+    margin: 1em 0;
+  }
+  .cd-timeline-block:first-child {
+    margin-top: 0;
+  }
+  .cd-timeline-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cd-timeline-img {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /*box-shadow: 0 0 0 4px #7E57C2, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);*/
+}
+.cd-timeline-img {
+  background: rgb(51, 60, 66);
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-img {
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: 16px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+
+
+.timeline-content-info-title, .timeline-content-info-date
+{
+  /*color: red;
+*/
+}
+
+.cd-timeline-content {
+  cursor: pointer;
+  cursor: hand;
+  position: relative;
+  margin-left: 60px;
+  margin-right: 30px;
+  background: #333C42;
+  border-radius: 2px;
+  padding: 1em;
+  .timeline-content-info {
+    background: #2B343A;
+    padding: 5px 10px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    box-shadow:  inset 0 2px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+    i {
+      margin-right: 5px;
+    }
+    .timeline-content-info-title, .timeline-content-info-date {
+      width: calc(50% - 2px);
+      display: inline-block;
+    }
+    @media (max-width: 500px) {
+      .timeline-content-info-title, .timeline-content-info-date {
+        display: block;
+        width:100%;
+      }
+    }
+  }
+  .content-skills {
+    font-size: 12px;
+    padding:0;
+    margin-bottom: 0;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      background: #40474D;
+      border-radius: 2px;
+      display: inline-block;
+      padding: 2px 10px;
+      color: rgba(255,255,255,0.7);
+      margin: 3px 2px;
+      text-align: center;
+      flex-grow: 1;
+    }
+  }
+}
+.cd-timeline-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-content h3 {
+  font-size: 18px;
+  color: rgba(255,255,255,.9);
+  margin-top:0;
+  margin-bottom: 5px;
+}
+.cd-timeline-content p, .cd-timeline-content .cd-date {
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.cd-timeline-content .cd-date {
+  display: inline-block;
+}
+.cd-timeline-content p {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+
+.cd-timeline-content::before {
+  content: '';
+  position: absolute;
+  /*top: 16px;*/
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-right: 10px solid #333C42;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-timeline-content h2 {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .cd-timeline-content p {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-content {
+    color: white;
+    margin-left: 0;
+    /*padding: 1.6em;*/
+    width: 47%;
+    margin: 0
+  }
+  .cd-timeline-content::before {
+    top: 24px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: #333C42;
+  }
+  .cd-timeline-content .cd-date {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+    top: 24px;
+    left: auto;
+    right: 100%;
+    border-color: transparent;
+    border-right-color: #333C42;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+    left: auto;
+    right: 122%;
+    text-align: right;
+  }
+}
+
+
+
+.featherlight-content{
+  width: 80%;
+}
+
+.image{
+  display: block;
+  width: 95%;
+  margin: auto;
+}
+
+@media only screen and (min-width: 800px) {
+  .image{
+    max-width: 400px;
+    max-height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .featherlight-content{
+    width: 50%;
+  }
+  .image{
+    max-width: 400px;
+    max-height: 400px;
+  }
+}
+
+
+
+.lighty{
+  display:none;
+}
+
+.featherlight-inner{
+  visibility: visible;
+}
+
+
+
+
+.abstract
+{
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 5px;
+}
+.info{
+  margin: 5px;
+}
+
+.image-container{
+  width: 100%;
+}
+
+
+.wallopbuttons
+{
+  background-color: #438db9;
+  color: white;
+  border: none;
+}
+
+
+pre {
+  background-color: #282828;
+  color: #438db9;
+white-space: pre-line;
+word-break: keep-all;
+
+}
+
+
+
+
+
+  </style>
+<script src="featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="featherlight.min.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+    .featherlight .featherlight-content{
+      background-color: #282828;
+    }
+    .abstract
+    {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 5px;
+    }
+  </style>
+<script type="text/javascript">
+
+  function loadDoc(filename, element) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+	      document.getElementById(element).innerHTML = "<pre>" + this.responseText + "</pre>";
+      }
+    };
+    xhttp.open("GET", filename, true);
+    xhttp.send();
+  }
+
+    $( document ).ready(function() {
+      var schedule = {
+                        "schedule":[
+                          {"name":"Leon", "surname":"Jacobs", "twitter": "leonjza",
+                          "title": "Keynote",
+                          "time":"9:05 - 9:50",
+                          "img":"speaker-info/2023/leon.jpg",
+                          "abstract":"speaker-info/2023/leon.abstract",
+                          "bio": "speaker-info/2023/leon.bio"},
+
+                          {"name":"Jared", "surname":"Naude", "twitter": "jarednaude",
+                          "title": "2023 Year in Review: Threads of a nation-state dystopia",
+                          "time":"9:50 - 10:35",
+                          "img":"speaker-info/2023/jared.jpg",
+                          "abstract":"speaker-info/2023/jared.abstract",
+                          "bio": "speaker-info/2023/jared.bio"},
+
+                          {"name":"Connor", "surname":"du Plooy", "twitter": "0xc0ffee_jhb",
+                          "title": "ed2root - how ancient IPC mechanisms can help you today",
+                          "time":"10:35 - 10:50",
+                          "img":"speaker-info/2023/connor.jpg",
+                          "abstract":"speaker-info/2023/connor.abstract",
+                          "bio": "speaker-info/2023/connor.bio"},
+
+                          {"name":"Tinus", "surname":"Green", "twitter": "0xc0ffee_jhb",
+                          "title": "Let the Children play - Leveraging AD CS for persistence and profit in Parent-Child configured forests.",
+                          "time":"11:05 - 11:50",
+                          "img":"speaker-info/2023/tinus.jpg",
+                          "abstract":"speaker-info/2023/tinus.abstract",
+                          "bio": "speaker-info/2023/tinus.bio"},
+
+                          {"name":"Michael", "surname":"Rodger", "twitter": "shifttymike",
+                          "title": "Noooooooooo touch!",
+                          "time":"11:50 - 12:35",
+                          "img":"speaker-info/2023/michael.jpg",
+                          "abstract":"speaker-info/2023/michael.abstract",
+                          "bio": "speaker-info/2023/michael.bio"},
+
+                          {"name":"Jonathon", "surname":"Everatt", "twitter": "0xc0ffee_jhb",
+                          "title": "This Wide World of Consent",
+                          "time":"13:15 - 14:00",
+                          "img":"speaker-info/2023/jonathon.jpg",
+                          "abstract":"speaker-info/2023/jonathon.abstract",
+                          "bio": "speaker-info/2023/jonathon.bio"},
+
+                          {"name":"Matthew", "surname":"Hughes", "twitter": "dovendyrr",
+                          "title": "Hacking for Humanity",
+                          "time":"14:00 - 14:45",
+                          "img":"speaker-info/2023/matthew.jpg",
+                          "abstract":"speaker-info/2023/matthew.abstract",
+                          "bio": "speaker-info/2023/matthew.bio"},
+
+                          {"name":"Gerhard", "surname":"Botha", "twitter": "gerbot_",
+                          "title": "The cyber-pirate's guide to C2 development",
+                          "time":"14:45 - 15:30",
+                          "img":"speaker-info/2023/gerhard.jpg",
+                          "abstract":"speaker-info/2023/gerhard.abstract",
+                          "bio": "speaker-info/2023/gerhard.bio"},
+
+                          {"name":"Isak", "surname":"van der Walt", "twitter": "IPmegladon",
+                          "title": "GIT your secrets?",
+                          "time":"15:45 - 16:30",
+                          "img":"speaker-info/2023/isak.jpg",
+                          "abstract":"speaker-info/2023/isak.abstract",
+                          "bio": "speaker-info/2023/isak.bio"},
+
+                          {"name":"Tayla", "surname":"Sellschop", "twitter": "taylasellschop",
+                          "title": "The Great China Firewall",
+                          "time":"16:30 - 17:00",
+                          "img":"speaker-info/2023/tayla.jpg",
+                          "abstract":"speaker-info/2023/tayla.abstract",
+                          "bio": "speaker-info/2023/tayla.bio"}
+
+
+                                ]
+                      };
+
+     for (index = 0; index < schedule.schedule.length; index++)
+      {
+        var content = '<div class="cd-timeline-block">';
+        content += '<div class="cd-timeline-img cd-picture"></div>';
+        content += '<a data-featherlight="#'+index+'">';
+        content += '<div class="cd-timeline-content speakers">';
+        //content += '<h3>'+ schedule.schedule[index].name + " " + schedule.schedule[index].surname +'</h3>';
+        content += '<h3>'+ schedule.schedule[index].title +'</h3>';
+        content += '<div class="timeline-content-info">';
+        content += '<span class="timeline-content-info-title">';
+        //content += '<i class="fa fa-certificate" aria-hidden="true"></i>'+schedule.schedule[index].title +'</span>';
+        if ("twitter2" in schedule.schedule[index]) {
+            content += '<i class="fa fa-certificate" aria-hidden="true"></i>'+schedule.schedule[index].name + " & " + schedule.schedule[index].surname +'</span>';
+        } else {
+            content += '<i class="fa fa-certificate" aria-hidden="true"></i>'+schedule.schedule[index].name + " " + schedule.schedule[index].surname +'</span>';
+        }
+        content += '<br/>';
+        content += '<span class="timeline-content-info-date">';
+        content += '<i class="fa fa-calendar-o" aria-hidden="true"></i>'+ schedule.schedule[index].time +'</span>';
+        content += '</div>';
+        content += '</div>';
+        content += '</a>';
+        content += '</div>';
+
+        var timeline = document.getElementById('cd-timeline').innerHTML += content;
+
+        var moreinfo = '<div class="lighty" id="'+index+'"><div>';
+        moreinfo += '<div class="info"><span style="padding: 0px; font-size: 20px; color: rgba(255, 255, 255, .9)">'+schedule.schedule[index].title+'</span><br/>';
+        if ("twitter2" in schedule.schedule[index]) {
+            moreinfo += "<span>";
+            moreinfo += schedule.schedule[index].name + ' - <a href="https://twitter.com/' + schedule.schedule[index].twitter + '">@' + schedule.schedule[index].twitter + '</a> & ';
+            moreinfo += schedule.schedule[index].surname + ' - <a href="https://twitter.com/' + schedule.schedule[index].twitter2 + '">@' + schedule.schedule[index].twitter2 + '</a>';
+            moreinfo += "</span><br><br><br>";
+        } else {
+        moreinfo += '<span>'+ schedule.schedule[index].name + " " + schedule.schedule[index].surname +' - <a href="https://twitter.com/' + schedule.schedule[index].twitter + '">@' + schedule.schedule[index].twitter + '</a></span><br><br><br>'; }
+        moreinfo += '<div class="image-container"><img class="image" style="width:200px" src="' + schedule.schedule[index].img + '"></img></div><br>';
+        moreinfo += '<span style="padding: 0px; text-decoration: underline;">Abstract:</span><br/>';
+        moreinfo += '<span id="speaker' + index + 'abstract"></span></div><br/>';
+        moreinfo += '<div class="info"><span style="padding: 0px; text-decoration: underline;">Bio:</span><br/>';
+        moreinfo += '<span id="speaker' + index + 'bio"></span></div></div></div>'
+
+        var data = document.getElementById('data').innerHTML += moreinfo;
+
+        loadDoc(schedule.schedule[index].bio, "speaker" + index + "bio");
+        loadDoc(schedule.schedule[index].abstract, "speaker" + index + "abstract");
+      }
+    });
+
+
+
+
+  </script>
+<link rel="stylesheet" href="wallop.css">
+<script src="Wallop.js"></script>
+<script>
+    $(document).ready(function(){
+      var wallopEl = document.querySelector('.Wallop');
+      var slider = new Wallop(wallopEl);
+    });
+  </script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<div id="root" class="container-fluid" style="width: 100%">
+<h1 syle="widh: 100%"><div style="width: 100%" class="main-heading text-center"> <img src="favicon.ico" style="float:left; width: 80px">0xcon</div></h1>
+</div>
+<nav class="navbar navbar-inverse center-block" data-spy="affix" data-offset-top="110">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+</div>
+<div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav">
+<li><a href="#root">ROOT<span class="blinkers">&#9608;</span></a></li>
+<li><a href="#cfp">CFP<span class="blinkers">&#9608;</span></a></li>
+<li><a href="#where">EVENT<span class="blinkers">&#9608;</span></a></li>
+
+
+
+<li><a href="#code">CODE OF CONDUCT<span class="blinkers">&#9608;</span></a></li>
+<li><a href="history.html">HISTORY</a></li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<div id="section1" class="container-fluid">
+<div class="row">
+<div class="col-xs-6 col-xs-offset-3 row hidden-sm hidden-xs">
+<div class="col-xs-3">
+<div id="counter-days" class="row text-center counter">
+--
+</div>
+<div class="row text-center counter-label">
+Days
+</div>
+</div>
+<div class="col-xs-1 text-center counter" style="padding: 0;">:</div>
+<div class="col-xs-2">
+<div id="counter-hours" class="row  text-center counter">
+--
+</div>
+<div class="row text-center counter-label">
+Hours
+</div>
+</div>
+<div class="col-xs-1 counter" style="padding: 0;">:</div>
+<div class="col-xs-2">
+<div id="counter-minutes" class="row text-center counter">
+--
+</div>
+<div class="row text-center counter-label">
+Minutes
+</div>
+</div>
+<div class="col-xs-1 counter" style="padding: 0;">:</div>
+<div class="col-xs-2">
+<div id="counter-seconds" class="row text-center counter">
+--
+</div>
+<div class="row text-center counter-label">
+Seconds
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="where" class="container-fluid" style="background-color:#1e1f23">
+<div class="col-md-6 col-md-offset-3 col-xs-12">
+<div class="row text-center">
+<h1>What is 0xcon?</h1>
+</div>
+<div class="row">
+<p class="text-justify">
+0xcon is an infosec conference aimed towards building the Gauteng and ZA community. Lots of you do great research and this is an open platform for you to share yours, as well as to see what others have been working on.
+</p>
+<p class="text-justify">
+You may have heard the announcement at the end of 0xcon this year saying that we would be transitioning to BSides Joburg going forward. The reason behind this was that the goal of both BSides and 0xcon is to drive community engagement and awareness of the field, and to encourage knowledge sharing. We want to give newcomers a place to learn more about infosec and for the stalwarts to sharpen their tradecraft and learn new tricks. The fear was that there wasn't space two have two conferences with the exact same agenda, competing for sponsors, attendees and talks.
+</p>
+<p class="text-justify">
+Upon reflection, we realised that this may have been a little short-sighted. BSides Cape Town has been immensely successful and we're super proud of how they've grown in the last 10 or so years. As a direct result of its success, the conference has grown hugely both in terms of complexity, attendance and cost, and while that's amazing for them, we think that there's still a space for the scrappy little-sibling con for a couple of reasons:
+</p>
+<ul>
+<li>It provides a safe, lower-pressure environment for people to get comfortable with speaking publicly, therefore encouraging more first-time speakers</li>
+<li>It provides an opportunity to engage with the community and listen to some great talks without having to travel across the country (BSides Joburg will also address this, although the timing will have an impact on who has research ready to present at the time)</li>
+</ul>
+<p class="text-justify">
+Ultimately, we believe that 0xcon and BSides are fighting the same good fight, but from different angles, and the difference between them is just great enough that it's still worth having both. We'll have 0xcon in 2024 and see how it goes. Either we'll be proven right and we'll be able to wrap it up with the peace of mind that we didn't let it die a premature death, or we’ll see that there is space for both cons. In the meanwhile, please keep an eye on future events through Hack South on Discord, join us on the last Tuesday of every month for social meetups at 0xc0ffee_jhb, and we look forward to seeing you all again this year!
+</p>
+<p class="text-justify">For more info, follow us on twitter at <a href="https://twitter.com/0xc0ffee_jhb">https://twitter.com/0xc0ffee_jhb</a>, join the <a href="https://discord.gg/hack-south-687602309395382282">HackSouth Discord</a>, or join us at any of the 0xc0ffee meetups on the last day of each month.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<div class="container-fluid" id="cfp">
+<div class="row text-center">
+<h1>Call For Papers</h1>
+</div>
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+<p class="text-justify">
+If you've done some interesting research, learned something you think others should know, or developed a useful tool or technique, submit it! If you're still busy researching but know for sure that you can finish it soon then submit it anyway! There's plenty of time between now and November to get it done.
+</p>
+<p class="text-justify">
+Also, feel free to submit something. If you've never spoken at a con, or if you've spoken at so many you've lost count then all we ask is that you come with something interesting and relevant to say.
+</p>
+<p class="text-justify">
+After you submit it, we'll review your submission and get back to you as soon as humanly possible. Any submissions after the closing date will not be considered and the review panel's decision on the talks to be selected will be final. Unfortunately there are limited spots available so if your talk isn't selected, please try again for the next 0xcon.
+</p>
+</div>
+</div>
+<br/>
+<div class="col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-3">
+<div class="row">
+<div class="col-sm-4 text-xs-left text-sm-right" style="padding: 0px; text-decoration: underline;">Status:</div>
+<div class="col-sm-8" style="color: green;">Open until 15 October 2024. Enter your submissions at <a href="https://forms.gle/YS2H5naMSsRjNdKK6">forms.gle/YS2H5naMSsRjNdKK6</a></div>
+
+</div>
+<div class="row">
+<div class="col-sm-4 text-xs-left text-sm-right" style="padding: 0px; text-decoration: underline;">Requirements:</div>
+<div class="col-sm-8 pull-right">
+<div class="row">
+<div class="list_bullets_req" style="margin-left: 10px;">[+]</div>
+<div class="lists_req"><span style="text-decoration: underline;">A detailed abstract:</span><br/>Tell us what you've been working on. More detail is better. You'll need to convince us, as well as attendees, that it's going to be good. This should include a title and summary of the content.</div>
+</div>
+<div class="row">
+<div class="list_bullets_req">[+]</div>
+<div class="lists_req"><span style="text-decoration: underline;">A brief biography:</span><br/>Tell us a bit about yourself. Tell us who you are, what you do, and what makes you cool. Include your name, your twitter handle, and an introduction. We'll ask you to mail a photo of yourself in a followup mail.</div>
+</div>
+<div class="row">
+<div class="list_bullets_req">[+]</div>
+<div class="lists_req"><span style="text-decoration: underline;">Your timeslot:</span><br/>Tell us how much time you'll need. The slots will be 10 minutes for lightning talks, and 45 minutes for standard talks.</div>
+</div>
+</div>
+</div>
+</div>
+<br class="hidden-lg hidden-md" />
+<div class="col-sm-6 col-md-4 col-lg-3">
+<div class="row">
+<div class="col-sm-12">
+<div class="row text-justify">
+Our field offers new things to research and talk about almost daily. For ideas, think along the lines of:
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Penetration Testing</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Reverse Engineering</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Rootkit Development</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Code Analysis</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Forensics and Anti-Forensics</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Embedded Device Security</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Web Application Security</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Mobile Device Security</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Threat Intelligence</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Wireless Security</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Cryptography and Cryptanalysis</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Social Engineering</div>
+</div>
+<div class="row">
+<div class="list_bullets">[+]</div>
+<div class="lists">Telecommunications Security (SS7, 3G/4G/5G, GSM, VOIP, etc.)</div>
+</div>
+<div class="row text-justify">
+<div>We ask that the work be your own. If your research builds on previous work, be sure to mention the original author, and to focus on your additions.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid" id="event">
+<div class="row text-center">
+<h1>Event Information</h1>
+</div>
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+<div class="row">
+<div class="col-sm-2 text-xs-left text-sm-right" style="padding: 0px; text-decoration: underline;">When:</div><div class="col-sm-10">November 9, 2024</div>
+<div class="col-sm-2 text-xs-left text-sm-right" style="padding: 0px; text-decoration: underline;">Where:</div><div class="col-sm-10">MTN Innovation Center, 216 14th Avenue, Fairland, Randburg</div>
+
+<div class="col-sm-2 text-xs-left text-sm-right" style="padding: 0px; text-decoration: underline;">Time:</div><div class="col-sm-10">9 am to 5 pm, UTC+2</div>
+
+</div>
+</div>
+</div>
+<br/>
+</div>
+
+
+<div class="container-fluid" id="code">
+<div class="row text-center">
+<h1>Code of Conduct</h1>
+</div>
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+<p class="text-justify">
+0xcon's primary goal is to build the infosec community in Gauteng and South Africa. South Africa is naturally culturally diverse, and we're committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, or religion.
+</p>
+<p class="text-justify">
+In pursuit of this goal, we've laid out the following rules for speakers and attendees.<br/>
+When you come to the conference, we ask that you:
+<ul>
+<li>Participate in an authentic and active way. In doing so, you contribute to the health and longevity of our community.</li>
+<li>Exercise consideration and respect in your speech and actions.</li>
+<li>Refrain from demeaning, discriminatory, or harassing behaviour and speech.</li>
+<li>Be mindful of your surroundings and of your fellow participants.</li>
+</ul>
+</p>
+<p class="text-justify">
+On the other hand, generally offensive behaviour is unwelcome and unacceptable. Particularly:
+<ul>
+<li>Violence, threats of violence or violent language directed against another person.</li>
+<li>Sexist, racist, homophobic, trans-phobic, ableist or otherwise discriminatory jokes and language.</li>
+<li>Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.</li>
+<li>Inappropriate photography or recording.</li>
+<li>Inappropriate physical contact. You should have someone’s consent before touching them.</li>
+<li>Unwelcome sexual attention. This includes, sexualised comments or jokes; inappropriate touching, groping, and unwelcome sexual advances.</li>
+<li>Deliberate intimidation, stalking or following (online or in person).</li>
+<li>Advocating for, or encouraging, any of the above behaviour.</li>
+<li>Sustained disruption of community events, including talks and presentations.</li>
+</ul>
+</p>
+<p class="text-justify">
+Please alert community leaders if you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, even if they seem inconsequential.
+In short, be interested, be courteous, and make sure your criticism is constructive. We're all here to learn from each other.
+</p>
+</div>
+</div>
+</div>
+<div class="container-fluid" id="end">
+</div>
+</div>
+<script>
+    var countDownDate = new Date("Nov 9, 2024 08:00:00").getTime();
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+      if (seconds < 0) {
+
+} else {
+
+      document.getElementById("counter-days").innerHTML = days;
+      if (hours < 10)
+      {
+        hours = "0" + hours;
+      }
+      document.getElementById("counter-hours").innerHTML = hours;
+      if (minutes < 10)
+      {
+        minutes = "0" + minutes;
+      }
+      document.getElementById("counter-minutes").innerHTML = minutes;
+      if (seconds < 10)
+      {
+        seconds = "0" + seconds;
+      }
+      document.getElementById("counter-seconds").innerHTML = seconds;
+
+}
+      if (distance < 0) {
+          clearInterval(x);
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
